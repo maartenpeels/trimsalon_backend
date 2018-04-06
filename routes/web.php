@@ -1,7 +1,9 @@
 <?php
 
-Route::get('login', function () {
-    return view('login');
-});
-
-Auth::routes();
+Route::any('{any}', function () {
+    return response()->json([
+        "name"    => "Trimsalon API",
+        "version" => "1.0",
+        "status"  => "up"
+    ]);
+})->where('any', '.*');
